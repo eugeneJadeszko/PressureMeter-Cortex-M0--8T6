@@ -1,6 +1,9 @@
 #include "adc.h"
 #include "gpio.h"
 
+/**
+ * Метод инициализации настроек АЦП.
+ */
 void adcInit(void) {
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE); //ADC1 Periph clock enable
 	ADC_StructInit(&ADC_InitStructure); //Initialize ADC structure
@@ -16,13 +19,14 @@ void adcInit(void) {
 	ADC_ChannelConfig(ADC1, ADC0_SENS | ADC1_BAT, ADC_SampleTime_239_5Cycles);
 	ADC_GetCalibrationFactor(ADC1); //ADC Calibration
 	ADC_Cmd(ADC1, ENABLE); //Enable ADC1
-	while (!ADC_GetFlagStatus(ADC1, ADC_FLAG_ADEN))
-		; //Wait the ADCEN flag
+	while (!ADC_GetFlagStatus(ADC1, ADC_FLAG_ADEN)); //Wait the ADCEN flag
 }
 
+/**
+ * Метод, возвращающий значение АЦП по завершении измерения.
+ */
 uint16_t getAdcValue() {
 	ADC_StartOfConversion(ADC1);
-	while (ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == RESET)
-		;
+	while (ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == RESET);
 	return ADC_GetConversionValue(ADC1);
 }

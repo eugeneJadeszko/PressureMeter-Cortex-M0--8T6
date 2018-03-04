@@ -12,12 +12,16 @@ uint8_t bat50[8] = { 14, 17, 17, 17, 31, 31, 31, 31 };
 uint8_t bat70[8] = { 14, 17, 17, 31, 31, 31, 31, 31 };
 uint8_t bat95[8] = { 14, 17, 31, 31, 31, 31, 31, 31 };
 uint8_t batFull[8] = { 14, 31, 31, 31, 31, 31, 31, 31 };
-uint16_t maxThreshold = 600;
+uint16_t maxThreshold = 500;
 uint16_t minThreshold = 100;
 
 //But MENU_OK_PA10 = { B_MENU_OK_PA10, NOT_PRESSED };
 //But PLUS_PA9 = { B_PLUS_PA9, NOT_PRESSED };
 
+/**
+ * Метод осуществляет инициалзацию дисплея,
+ * а так же реализует экран привествия.
+ */
 void DisplayInit(void) {
 	TIM_Cmd(TIM2, DISABLE);
 	LcdInit();
@@ -31,6 +35,10 @@ void DisplayInit(void) {
 	TIM_Cmd(TIM2, ENABLE);
 }
 
+/**
+ * Метод реализует точку входа в пользовательский интерфейс.
+ * Вызывает главынй экран и меню.
+ */
 void Display(void) {
 	LcdClear();
 	delay_ms(2);
@@ -42,6 +50,10 @@ void Display(void) {
 	menu();
 }
 
+/**
+ * Метод реализует отображение главного экрана.
+ * Отображает состояние внешнего устройства и значение давления.
+ */
 void mainDisplay() {
 	LcdGoToPos(0, 0);
 	LcdDrawString("State: ");
@@ -49,6 +61,10 @@ void mainDisplay() {
 	LcdDrawString("Pressure: ");
 }
 
+/**
+ * Метод реализует навигацию по пользовательскому меню,
+ * а так же отключает и включает обновление главного экрана.
+ */
 void menu() {
 	TIM_Cmd(TIM2, DISABLE);
 	uint8_t menuItem = 0;
@@ -77,6 +93,9 @@ void menu() {
 	TIM_Cmd(TIM2, ENABLE);
 }
 
+/**
+ * Метод реализует отображение пункта меню "Установка верхнего порога".
+ */
 void itemMaxThreshold() {
 	LcdClear();
 	delay_ms(2);
@@ -91,6 +110,9 @@ void itemMaxThreshold() {
 	}
 }
 
+/**
+ * Метод реализует отображение пункта меню "Установка нижнего порога".
+ */
 void itemMinThreshold() {
 	LcdClear();
 	delay_ms(2);
@@ -105,6 +127,9 @@ void itemMinThreshold() {
 	}
 }
 
+/**
+ * Метод реализует отображение пункта меню "Установка яркости дисплея".
+ */
 void itemBrightnessControl() {
 	LcdClear();
 	delay_ms(2);
@@ -119,6 +144,9 @@ void itemBrightnessControl() {
 	}
 }
 
+/**
+ * Метод реализует отображение пункта меню "Выход".
+ */
 uint8_t quit() {
 	LcdClear();
 	delay_ms(2);
@@ -134,6 +162,9 @@ uint8_t quit() {
 	return 0;
 }
 
+/**
+ * Метод реализует функцию установки яркости дисплея.
+ */
 void brightnessControl() {
 	int8_t step = 5;
 	LcdClear();
@@ -168,6 +199,9 @@ void brightnessControl() {
 	LcdDrawString("Bright control");
 }
 
+/**
+ * Метод реализует регулировку яркости дисплея в направлении 100 -> 0 %.
+ */
 void dehighLighting(int8_t *step, uint8_t lcdBrightness) {
 	while (1) {
 		if (buttonPlus() == PRESSED) {
@@ -200,6 +234,9 @@ void dehighLighting(int8_t *step, uint8_t lcdBrightness) {
 	}
 }
 
+/**
+ * Метод реализует регулировку яркости дисплея в направлении 0 -> 100 %.
+ */
 void highLighting(int8_t *step, uint8_t lcdBrightness) {
 	while (1) {
 		if (buttonPlus() == PRESSED) {
@@ -224,6 +261,9 @@ void highLighting(int8_t *step, uint8_t lcdBrightness) {
 	}
 }
 
+/**
+ * Метод реализует функцию установки нижнего порога давления.
+ */
 void setMinThreshold() {
 	LcdClear();
 	delay_ms(2);
@@ -256,6 +296,9 @@ void setMinThreshold() {
 	}
 }
 
+/**
+ * Метод реализует функцию установки верхнего порога давления.
+ */
 void setMaxThreshold() {
 	LcdClear();
 	delay_ms(2);
@@ -288,14 +331,23 @@ void setMaxThreshold() {
 	}
 }
 
+/**
+ * Метод для получения значения переменной, хранящей значение верхнего порога давления.
+ */
 uint16_t getMaxThreshold() {
 	return maxThreshold;
 }
 
+/**
+ * Метод для получения значения переменной, хранящей значение нижнего порога давления.
+ */
 uint16_t getMinThreshold() {
 	return minThreshold;
 }
 
+/**
+ * Метод реализует создание пользовательских символов для дисплея.
+ */
 void IconDraw(uint8_t number, uint8_t * char_data) {
 	uint8_t i;
 	LcdSendCommand((1 << 6) | (number * 8));
@@ -305,6 +357,9 @@ void IconDraw(uint8_t number, uint8_t * char_data) {
 	LcdSendCommand(1 << 7);
 }
 
+/**
+ * Метод реализует создание пользовательских символов "батарейка".
+ */
 void BatteryIconDraw(void) {
 	IconDraw(0, batEmpty);
 	IconDraw(1, bat10);

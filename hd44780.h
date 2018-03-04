@@ -44,10 +44,8 @@ void LcdSendByte(uint8_t data);
 
 uint8_t LcdDrawString(char* text);
 
-//---Установка позиции курсора---//
-void LcdGoToPos(char Row, char Col);
+void LcdGoToPos(char row, char col);
 
-//---Очистка дисплея---//
 void LcdClear(void);
 
 uint8_t LcdConvertIntDisplay(int32_t u);

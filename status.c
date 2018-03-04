@@ -8,7 +8,7 @@
 uint8_t charge;
 uint16_t pressure;
 uint8_t stat;
-uint8_t currentDeviceState = OFF;
+uint8_t currentDeviceState = ON;
 
 /**
  * Метод обновляет информацию о давлении, состоянии батареи и состоянии управляемого устройства на дисплее.
@@ -20,7 +20,7 @@ void updateStatuses() {
 }
 
 /**
- * Метод определяет и обновляет информацию о состоянии батареи.
+ * Метод определяет состояние АКБ и обновляет информацию на дисплее.
  */
 void showBatteryStatus() {
 	uint8_t currentState;
@@ -41,7 +41,7 @@ void showBatteryStatus() {
 	}
 }
 /**
- * Метод возвращает текущее состояние батареи
+ * Метод возвращает текущее состояние батареи.
  *
  * return CHARGE    - если батарея заряжается
  * 		  STANDBY   - если батарея заряжена и подключен кабель зарядки
@@ -131,10 +131,11 @@ void updateDeviceStatus() {
 }
 
 /**
- * Метод обновляет значение переменной, создержащей значение давления в кПа, а так же обновляет состояние управляемого устройства.
+ * Метод обновляет значение переменной, создержащей значение давления в кПа,
+ * а так же обновляет состояние управляемого устройства.
  */
 void setPressure(uint16_t pressureValue) {
-	if (pressureValue > getMaxThreshold()) {
+	if (pressureValue >= getMaxThreshold()) {
 		currentDeviceState = OFF;
 	} else if (pressureValue < getMinThreshold()) {
 		currentDeviceState = ON;

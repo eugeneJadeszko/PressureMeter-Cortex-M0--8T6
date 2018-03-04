@@ -3,6 +3,9 @@
 
 #define SYSCLK 48
 
+/**
+ * Задержка в мкс.
+ */
 void delay_us(uint32_t t)
 {
 	unsigned long i;
@@ -10,6 +13,9 @@ void delay_us(uint32_t t)
 	while(i--);
 }
 
+/**
+ * Задержка в мс.
+ */
 void delay_ms(uint32_t t)
 {
 	unsigned long i;

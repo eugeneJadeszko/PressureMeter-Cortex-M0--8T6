@@ -7,6 +7,10 @@
 #include "status.h"
 #include "calc.h"
 
+/**
+ * Метод, с которого начинается выполение программы.
+ * Вызывает методы инициализации и содержит основной цикл программы.
+ */
 int main(void) {
 	GPIOInit();
 	initPWMtimer1();
@@ -20,6 +24,11 @@ int main(void) {
 	}
 }
 
+/**
+ * Метод обработки прерываний TIM3.
+ * Осуществляет обновление значений давления и заряда АКБ,
+ * а так же обработку состояния кнопки включение/отключения подсветки дисплея.
+ */
 void TIM3_IRQHandler(void) {
 	if (TIM_GetITStatus(TIM3, TIM_IT_Update) != RESET) {
 		TIM_ClearITPendingBit(TIM3, TIM_IT_Update);
@@ -28,6 +37,11 @@ void TIM3_IRQHandler(void) {
 	}
 }
 
+/**
+ * Метод обработки прерываний TIM2.
+ * Осуществляет обновление показаний на дисплее, таких как:
+ * состояние АКБ, значение давления и состояние управляемого устройства.
+ */
 void TIM2_IRQHandler(void) {
 	if (TIM_GetITStatus(TIM2, TIM_IT_Update) != RESET) {
 		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
