@@ -42,9 +42,9 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/pressureMeterC8T6/main.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="300" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="buttons.c" partName="buttons.c" path="D:/STM/CortexM0/pressureMeterC8T6/buttons.c" title="buttons.c" tooltip="D:/STM/CortexM0/pressureMeterC8T6/buttons.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="buttons.c" partName="buttons.c" path="D:/STM/CortexM0/pressureMeterC8T6/buttons.c" title="buttons.c" tooltip="D:/STM/CortexM0/pressureMeterC8T6/buttons.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/pressureMeterC8T6/buttons.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="2" selectionOffset="324" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="197" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="status.h" partName="status.h" path="D:/STM/CortexM0/pressureMeterC8T6/status.h" title="status.h" tooltip="D:/STM/CortexM0/pressureMeterC8T6/status.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/pressureMeterC8T6/status.h"/>
@@ -62,9 +62,9 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/pressureMeterC8T6/display.h"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="115" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="calc.c" partName="calc.c" path="D:/STM/CortexM0/pressureMeterC8T6/calc.c" title="calc.c" tooltip="D:/STM/CortexM0/pressureMeterC8T6/calc.c" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="calc.c" partName="calc.c" path="D:/STM/CortexM0/pressureMeterC8T6/calc.c" title="calc.c" tooltip="D:/STM/CortexM0/pressureMeterC8T6/calc.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/pressureMeterC8T6/calc.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="200" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1511" selectionTopPixel="325"/>
 </editor>
 </editors>
 <views>
@@ -201,43 +201,10 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/pressureMeterC8T6/buttons.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/pressureMeterC8T6/display.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/pressureMeterC8T6/calc.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/pressureMeterC8T6/calc.c"/>
+<editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="C:\Program Files (x86)\GNU Tools ARM Embedded\5.4 2016q3\arm-none-eabi\include\math.h" project="pressureMeterC8T6"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/pressureMeterC8T6/display.h"/>
 </editors>
-<item historyLabel="buttons.h" index="2">
-<position info="not_deleted" x="347" y="0"/>
-</item>
-<item historyLabel="display.c" index="1">
-<position info="not_deleted" x="1020" y="48"/>
-</item>
-<item historyLabel="buttons.c" index="3">
-<position info="not_deleted" x="384" y="59"/>
-</item>
-<item historyLabel="buttons.c" index="3">
-<position info="not_deleted" x="820" y="0"/>
-</item>
-<item historyLabel="buttons.c" index="3">
-<position info="not_deleted" x="345" y="0"/>
-</item>
-<item historyLabel="buttons.h" index="2">
-<position/>
-</item>
-<item historyLabel="gpio.h" index="4">
-<position info="not_deleted" x="205" y="10"/>
-</item>
-<item historyLabel="buttons.h" index="2">
-<position/>
-</item>
-<item historyLabel="buttons.c" index="3">
-<position info="not_deleted" x="345" y="0"/>
-</item>
-<item historyLabel="buttons.h" index="2">
-<position/>
-</item>
-<item historyLabel="display.c" index="1">
-<position info="not_deleted" x="946" y="0"/>
-</item>
-<item historyLabel="buttons.h" index="2">
-<position/>
-</item>
 <item historyLabel="buttons.c" index="3">
 <position info="not_deleted" x="345" y="0"/>
 </item>
@@ -349,8 +316,44 @@
 <item historyLabel="buttons.h" index="10">
 <position info="not_deleted" x="229" y="2"/>
 </item>
-<item active="true" historyLabel="buttons.c" index="11">
+<item historyLabel="buttons.c" index="11">
 <position info="not_deleted" x="686" y="0"/>
+</item>
+<item historyLabel="calc.c" index="14">
+<position/>
+</item>
+<item historyLabel="math.h" index="15">
+<position/>
+</item>
+<item historyLabel="calc.c" index="14">
+<position/>
+</item>
+<item historyLabel="math.h" index="15">
+<position/>
+</item>
+<item historyLabel="math.h" index="15">
+<position/>
+</item>
+<item historyLabel="calc.c" index="14">
+<position/>
+</item>
+<item historyLabel="display.h" index="16">
+<position info="not_deleted" x="115" y="0"/>
+</item>
+<item historyLabel="calc.c" index="14">
+<position/>
+</item>
+<item historyLabel="calc.c" index="14">
+<position/>
+</item>
+<item historyLabel="calc.c" index="14">
+<position/>
+</item>
+<item historyLabel="math.h" index="15">
+<position info="not_deleted" x="15511" y="4"/>
+</item>
+<item active="true" historyLabel="calc.c" index="14">
+<position/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -359,6 +362,9 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="math.h" tooltip="C:\Program Files (x86)\GNU Tools ARM Embedded\5.4 2016q3\arm-none-eabi\include\math.h">
+<persistable path="C:\Program Files (x86)\GNU Tools ARM Embedded\5.4 2016q3\arm-none-eabi\include\math.h" project="pressureMeterC8T6"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="calc.h" tooltip="pressureMeterC8T6/calc.h">
 <persistable path="/pressureMeterC8T6/calc.h"/>
 </file>
@@ -400,9 +406,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f0xx_gpio.h" tooltip="pressureMeterC8T6/stm32_lib/inc/stm32f0xx_gpio.h">
 <persistable path="/pressureMeterC8T6/stm32_lib/inc/stm32f0xx_gpio.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="buttons.c" tooltip="pressureMeterC8T6/buttons.c">
-<persistable path="/pressureMeterC8T6/buttons.c"/>
 </file>
 </mruList>
 </workbench>

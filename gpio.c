@@ -1,5 +1,8 @@
 #include "gpio.h"
 
+/**
+ * Метод настройки параметров выводов микроконтроллера.
+ */
 void GPIOInit(void) {
 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOB, ENABLE);
@@ -34,6 +37,7 @@ void GPIOInit(void) {
 	GPIO_InitStructure.GPIO_Pin = DEVICE_OUT_PA7;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 }

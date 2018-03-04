@@ -4,6 +4,9 @@
 uint16_t period = 0;
 uint8_t lcdBrightness = 10;
 
+/**
+ * Метод настройки таймера 3 в режиме прерываний по переполнению.
+ */
 void initTimer3() {
 	timerConf(RCC_APB1Periph_TIM3, 1000, 10, TIM3);
 	NVIC_InitStructure.NVIC_IRQChannel = TIM3_IRQn;
@@ -12,6 +15,9 @@ void initTimer3() {
 	NVIC_Init(&NVIC_InitStructure);
 }
 
+/**
+ * Метод настройки таймера 2 в режиме прерываний по переполнению.
+ */
 void initTimer2() {
 	timerConf(RCC_APB1Periph_TIM2, 1000, 500, TIM2);
 	NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
@@ -20,15 +26,25 @@ void initTimer2() {
 	NVIC_Init(&NVIC_InitStructure);
 }
 
+/**
+ * Метод, содержащий базовые настройки таймера, для его настройки в режиме прерываний по переполнению.
+ * RCC_APB1Periph - шина, тактирующая данный таймер.
+ * prescaler      - значение предделителя частоты таймера (частота в Гц).
+ * iTperiod		  - частота прерываний (prescaler/iTperiod) Гц.
+ * TIMx			  - таймер, который необходимо проинициализировать данными настройками.
+ */
 void timerConf(uint32_t RCC_APB1Periph, uint16_t prescaler, uint16_t iTperiod, TIM_TypeDef* TIMx) {
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph, ENABLE);
-	BaseStructure.TIM_Prescaler = (uint16_t)(SystemCoreClock / prescaler) - 1; //Делитель на prescaler Гц
-	BaseStructure.TIM_Period = iTperiod; // Частота прерываний: (prescaler/iTperiod) Гц
+	BaseStructure.TIM_Prescaler = (uint16_t)(SystemCoreClock / prescaler) - 1;
+	BaseStructure.TIM_Period = iTperiod;
 	TIM_TimeBaseInit(TIMx, &BaseStructure);
 	TIM_ITConfig(TIMx, TIM_IT_Update, ENABLE); //Активируем прерывание по переполнению
 	TIM_Cmd(TIMx, ENABLE);
 }
 
+/**
+ * Метод настройки таймера 1 в режиме ШИМ генерации.
+ */
 void initPWMtimer1() {
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1, ENABLE);
 	period = (uint16_t)(SystemCoreClock / 1000) - 1;
@@ -48,14 +64,23 @@ void initPWMtimer1() {
 	TIM_Cmd(TIM1, ENABLE);
 }
 
+/**
+ * Метод задания коэффициента заполнения (0 - 100) ШИМ таймера 1.
+ */
 void setBrightness(uint8_t brightness) {
 	TIM1->CCR4 = (uint16_t)(((uint32_t) brightness * (period - 1)) / 100);
 }
 
+/**
+ * Метод возвращает установленное значение яркости дисплея (0 - 100).
+ */
 uint8_t getLcdBrightness() {
 	return lcdBrightness;
 }
 
+/**
+ * Метод установки яркости дисплея (0 - 100).
+ */
 void setLcdBrightness(uint8_t brightness) {
 	lcdBrightness = brightness;
 	setBrightness(brightness);
